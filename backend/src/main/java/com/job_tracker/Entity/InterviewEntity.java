@@ -22,7 +22,7 @@ public class InterviewEntity {
     private Long interviewId;
     @ManyToOne
     @JoinColumn(name = "application_id", nullable = false)
-    private JobApplicationEntity application;
+    private JobApplicationEntity jobApplication;
 
     @CreationTimestamp
     private LocalDateTime interviewDate;

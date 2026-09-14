@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,7 +37,7 @@ public class JobApplicationEntity {
     private CompanyEntity company;
 
     @OneToMany(mappedBy = "jobApplication")
-    private List<InterviewEntity> interviews;
+    private List<InterviewEntity> interviews=new ArrayList<>();
 
     @OneToMany(mappedBy = "jobApplication")
     private List<JobReminderEntity> reminders;

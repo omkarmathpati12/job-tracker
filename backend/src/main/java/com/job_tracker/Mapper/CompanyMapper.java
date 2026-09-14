@@ -9,8 +9,10 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CompanyMapper {
 
-    @Mapping(target = "active", constant = "false")
+    @Mapping(target = "CId", ignore = true)
+    @Mapping(target = "applications", ignore = true)
     CompanyEntity toEntity(CompanyRequest companyRequest);
 
+    @Mapping(source = "CId", target = "cId")
     CompanyResponse toResponse(CompanyEntity companyEntity);
 }

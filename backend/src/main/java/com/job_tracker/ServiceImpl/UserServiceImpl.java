@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponse updateUser(UserRequest userRequest,Long userId) {
         UserEntity user=userRepo.findById(userId)
-                .orElseThrow(()->new ResourceNotFoundException("User with id "+userId+" not found"));
+                .orElseThrow(()->new ResourceNotFoundException("User with id {} not found",userId));
         userMapper.updateEntity(userRequest,user);
         UserEntity savedUser=userRepo.save(user);
         return userMapper.toResponse(savedUser);
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     public String deleteUser(Long userId) {
         log.debug("Deleting User {}", userId);
         UserEntity user=userRepo.findById(userId)
-                .orElseThrow(()-> new RuntimeException("User not found"));
+                .orElseThrow(()-> new ResourceNotFoundException("User with id {} not found",userId));
         user.setUserStatus(UserStatus.INACTIVE);
         userRepo.save(user);
         log.debug("Deleted User {}", userId);

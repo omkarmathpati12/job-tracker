@@ -12,6 +12,6 @@ public record JobApplicationRequest( String jobTitle,
                                      LocalDate appliedDate,
                                      JobType jobType,
                                      Long userId,
-                                     Long companyId
+                                     Long cId
                                     ) {
 }

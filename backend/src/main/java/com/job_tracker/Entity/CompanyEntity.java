@@ -1,5 +1,6 @@
 package com.job_tracker.Entity;
 
+import com.job_tracker.Enums.CompanyStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,8 @@ public class CompanyEntity {
     private String website;
     private String industry;
     private String location;
-    private boolean isActive;
+    @Enumerated(EnumType.STRING)
+    private CompanyStatus status=CompanyStatus.ACTIVE;
     @OneToMany(mappedBy = "company")
     private List<JobApplicationEntity> applications;
 }

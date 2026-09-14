@@ -11,5 +11,5 @@ public record JobApplicationResponse(Long jobId,
                                      LocalDate appliedDate,
                                      JobType jobType,
                                      Long userId,
-                                     Long companyId) {
+                                     Long cId) {
 }
